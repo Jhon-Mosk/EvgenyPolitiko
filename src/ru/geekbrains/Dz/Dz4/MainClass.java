@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class MainClass {
     public static void main(String[] args) {
-MyWindow();
+ new MyWindow();
     }
 }
 
