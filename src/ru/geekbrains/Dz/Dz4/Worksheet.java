@@ -79,6 +79,7 @@ surname.setPreferredSize(new Dimension(300,30));
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Form2();
+
             }
         });
 
@@ -130,7 +131,6 @@ class Form2 extends JFrame {
         add(buttonPanel);
 
 
-
         JTextField surname = new JTextField();
         JTextField name = new JTextField();
         JTextField patronymic = new JTextField();
@@ -153,6 +153,9 @@ class Form2 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+               surname.getText();
+name.getText();
+patronymic.getText();
             }
         });
 
