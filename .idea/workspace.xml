@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b1da8c9-bb59-42fc-b0c5-256d26a9de61" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/ImprovedMetod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/ImprovedMetod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/ImprovedMetod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/MainClass.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +19,8 @@
       <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="81" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="81" />
+            <state relative-caret-position="-358">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -27,8 +28,11 @@
       <file leaf-file-name="ImprovedMetod.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/ImprovedMetod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="1274">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,9 +80,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,7 +138,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainClass (1)">
+  <component name="RunManager" selected="Application.ImprovedMetod">
+    <configuration name="ImprovedMetod" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.geekbrains.Dz.Dz5.ImprovedMetod" />
+      <module name="Java 2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.geekbrains.Dz.Dz5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="MainClass (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.geekbrains.Dz.Dz5.MainClass" />
       <module name="Java 2" />
@@ -213,9 +228,11 @@
       <item itemvalue="Application.MainClass" />
       <item itemvalue="Application.Worksheet" />
       <item itemvalue="Application.MainClass (1)" />
+      <item itemvalue="Application.ImprovedMetod" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ImprovedMetod" />
         <item itemvalue="Application.MainClass (1)" />
         <item itemvalue="Application.Worksheet" />
         <item itemvalue="Application.MainClass" />
@@ -289,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531503420738</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Imroved Dz5">
+      <created>1531586808417</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1531586808417</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -304,17 +328,17 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119791664" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.119791664" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3995749" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -335,11 +359,12 @@
     <MESSAGE value="Dop Dz done" />
     <MESSAGE value="Dz 5 start" />
     <MESSAGE value="Dz 5 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dz 5 done" />
+    <MESSAGE value="Imroved Dz5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imroved Dz5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -626,15 +651,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="81" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="81" />
+        <state relative-caret-position="-358">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz5/ImprovedMetod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="1274">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

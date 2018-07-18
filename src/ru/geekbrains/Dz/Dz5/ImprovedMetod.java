@@ -1,74 +1,51 @@
 package ru.geekbrains.Dz.Dz5;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.System.currentTimeMillis;
 
 public class ImprovedMetod {
     public static void main(String[] args) {
-
-        metodWithThread(2);
-
-    }
-
-    private static void metodWithThread(int x) {
-        final int size = 10000000;
-        final int h = size / x ;
-        ArrayList<Float> arr = new ArrayList<>(size);
-        float [] a1 = new float[h];
-        float [] a2 = new float[h];
-        for (int i = 0; i <arr.size() ; i++) {
-            arr.set(i, (float) 1);
-        }
-        long a = System.currentTimeMillis();
-        System.arraycopy(arr, 0, a1, 0, h);
-        System.arraycopy(arr, h, a2, 0, h);
-
-        int fromIndex=0;
-        int toIndex=0;
-        for (int i = 0; i <arr.size() ; i++) {
-
-        }
-
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i <a1.length ; i++) {
-                    a1[i] =( float )( a1 [ i ] * Math . sin ( 0.2f + i / 5 ) * Math . cos ( 0.2f + i / 5 ) *
-                            Math . cos ( 0.4f + i / 2 ));
+        final int SIZE = 10000000;
+        final int THREADS_COUNT = 4;
+        // определяем размерность двумерного массива
+        final int PART_SIZE = SIZE / THREADS_COUNT;
+        float[] mas = new float[SIZE];
+        Arrays.fill(mas, 1f);
+        long a = currentTimeMillis();
+        // разделяем данные
+        final float[][] m = new float[THREADS_COUNT][PART_SIZE];
+        // создадим массив потоков
+        Thread[] t = new Thread[THREADS_COUNT];
+        for (int i = 0; i < THREADS_COUNT; i++) {
+            // будем копировать в двумерный массив данные из основного потока со сдвигом
+            System.arraycopy(mas, PART_SIZE * i, m[i], 0, PART_SIZE);
+            final int u = i;
+            t[i] = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    // считаем массив со сдвигом
+                    int n = u * PART_SIZE;
+                    for (int j = 0; j < PART_SIZE; j++, n++) {
+                        m[u][j] = (float) (m[u][j] * sin(0.2f + n / 5) * cos(0.2f + n / 5) * cos(0.4f + n / 2));
+                    }
                 }
-            }
-        });
-
-        Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i <a2.length ; i++) {
-                    a2[i] =( float )( a2 [ i ] * Math . sin ( 0.2f + i / 5 ) * Math . cos ( 0.2f + i / 5 ) *
-                            Math . cos ( 0.4f + i / 2 ));
-                }
-            }
-        });
-
-        t1.start();
-        t2.start();
-
+            });
+            t[i].start();
+        }
         try {
-            t1.join();
-            t2.join();
+            for (int i = 0; i < THREADS_COUNT; i++) {
+                t[i].join();
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.arraycopy(a1, 0, arr, 0, h);
-        System.arraycopy(a2, 0, arr, h, h);
-
-        System.out.println("Время вычисления по формуле и заполнения массива новыми данными: " +
-                (System.currentTimeMillis()-a) + " миллисекунд. Что равняется: "
-                + (System.currentTimeMillis()-a)*0.001+" секунды."+ "\n");
-
+        // складываем массив обратно в исходный массив
+        for (int i = 0; i < THREADS_COUNT; i++) {
+            System.arraycopy(m[i], 0, mas, i * PART_SIZE, PART_SIZE);
+        }
+        // определяем время
+        System.out.println(currentTimeMillis() - a);
     }
-
-
-
-
 }
-
-

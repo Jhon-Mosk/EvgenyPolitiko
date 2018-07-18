@@ -1,5 +1,7 @@
 package ru.geekbrains.Dz.Dz5;
 
+import java.util.ArrayList;
+
 public class MainClass {
     public static void main(String[] args) {
         metodWithoutThread();
@@ -15,6 +17,8 @@ public class MainClass {
         float [] a2 = new float[h];
         for (int i = 0; i <arr.length ; i++) {
             arr[i]=1;
+
+
         }
         long a = System.currentTimeMillis();
         System.arraycopy(arr, 0, a1, 0, h);
