@@ -1,4 +1,4 @@
-package ru.geekbrains.Dz.Dz6.client;
+package ru.geekbrains.Dz.Dz6.fromLesson.client;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

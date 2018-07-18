@@ -1,4 +1,4 @@
-package ru.geekbrains.Dz.Dz6.server;
+package ru.geekbrains.Dz.Dz6.fromLesson.server;
 
 public class ServerStart {
     public static void main(String[] args) {

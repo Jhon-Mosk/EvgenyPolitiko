@@ -1,4 +1,4 @@
-package ru.geekbrains.Dz.Dz6.server;
+package ru.geekbrains.Dz.Dz6.fromLesson.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
