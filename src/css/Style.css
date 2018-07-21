@@ -7,11 +7,13 @@
 }
 
 #textArea{
+
     -fx-font-family: "AmazDooMRight";
     -fx-font-size: 24;
     -fx-padding: 100;
     -fx-border-insets: 100;
     -fx-background-insets: 100;
+
 }
 
 #textField{

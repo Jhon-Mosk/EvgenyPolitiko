@@ -58,7 +58,7 @@ public class ClientHandler {
                         } else {
 
                         serverMain.broadCastMsg(nick + ": " + str);
-                        System.out.println("Client: " + str);}
+                        }
                     }
 
                 } catch (IOException e) {

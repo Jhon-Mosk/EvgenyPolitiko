@@ -1,5 +1,6 @@
 package ru.geekbrains.Dz.Dz7.client;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -68,6 +70,8 @@ public class Controller {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
+            String [] col = {"black", "red", "blue", "green", "gray", "magenta", "orange", "cyan", "pink", "yellow"};
+            Random rand = new Random();
 
 setAuthorized(false);
 
@@ -80,13 +84,16 @@ setAuthorized(false);
                                 setAuthorized(true);
                                 break;
                             } else {
-                                textArea.appendText(str + "\n");
+
+                                textArea.appendText(str+ "\n");
                             }
                         }
 
                         while (true) {
                             String str = in.readUTF();
                             if (str.equals("/serverClosed")) break;
+                            int color = rand.nextInt(col.length);
+                            textArea.setStyle("-fx-text-fill:" + col[color] +";");
                             textArea.appendText(str + "\n");
                         }
                     } catch (IOException e) {
