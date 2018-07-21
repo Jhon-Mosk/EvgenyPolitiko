@@ -12,6 +12,8 @@ public class ClientHandler {
     private DataOutputStream out;
     private String nick;
 
+
+
     public ClientHandler(ServerMain serverMain, Socket socket) {
 
         try {
@@ -29,24 +31,34 @@ public class ClientHandler {
                             String[] tokens = str.split(" ");
                             String newNick = AuthService.getNickByLoginAndPass(tokens[1], tokens[2]);
                             if (newNick != null) {
-                                sendMsg("/authentication success");
-                                nick = newNick;
-                                serverMain.subscribe(this);
-                                break;
+                                if (!serverMain.isNickBusy(newNick)) {
+                                    sendMsg("/authentication success");
+                                    nick = newNick;
+                                    serverMain.broadCastMsg(nick + " with us");
+                                    sendMsg("Welcome to our chat");
+                                    serverMain.subscribe(this);
+                                    break;
+                                } else sendMsg("This nick is busy. You sure that is your nick");
+
                             } else {
                                 sendMsg("Login or password is wrong. Try again.");
                             }
                         }
                     }
 
-                    while (true){
+                    while (true) {
                         String str = in.readUTF();
-                        if (str.equals("/end")){
+                        if (str.equals("/end")) {
                             out.writeUTF("/serverClosed");
                             break;
                         }
+                        if (str.startsWith("/w")){
+
+                            serverMain.privateMsg(str);
+                        } else {
+
                         serverMain.broadCastMsg(nick + ": " + str);
-                        System.out.println("Client: " + str);
+                        System.out.println("Client: " + str);}
                     }
 
                 } catch (IOException e) {
@@ -78,6 +90,10 @@ public class ClientHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getName(){
+        return nick;
     }
 
 }
