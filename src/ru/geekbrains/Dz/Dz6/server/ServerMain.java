@@ -73,8 +73,7 @@ public class ServerMain {
 
             try {
                 t1.join();
-                t2.join();
-            } catch (InterruptedException e) {
+               } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
@@ -83,6 +82,7 @@ public class ServerMain {
         } finally {
             try {
                 server.close();
+                socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

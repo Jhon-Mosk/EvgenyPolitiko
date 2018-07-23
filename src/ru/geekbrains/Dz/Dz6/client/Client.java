@@ -42,9 +42,10 @@ public class Client {
                         while (true) {
                             String w = in.readUTF();
                             if (w.equalsIgnoreCase("/end")) {
-                                System.out.println("Bye");
+
+                                out.writeUTF("/end");
                                 sc.close();
-                                System.out.println("/end");
+                                System.out.println("Bye");
                                 break;
                             }
                             System.out.println("Server:" + w);
@@ -80,7 +81,7 @@ public class Client {
 
             try {
                 t1.join();
-                t2.join();
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
