@@ -1,6 +1,7 @@
 package ru.geekbrains.Dz.Dz5;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class MainClass {
     }
 
     private static void metodWithThread() {
-        final int size = 10000000;
+        final int size = 10;
         final int h = size / 2 ;
         float [] arr = new float [ size ];
         float [] a1 = new float[h];
@@ -23,7 +24,7 @@ public class MainClass {
         long a = System.currentTimeMillis();
         System.arraycopy(arr, 0, a1, 0, h);
         System.arraycopy(arr, h, a2, 0, h);
-        System.out.println("adas");
+
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
