@@ -95,6 +95,7 @@ public class ClientHandler {
     }
 
     public boolean checkBlackList(String nick) {
+
         return blacklist.contains(nick);
     }
 

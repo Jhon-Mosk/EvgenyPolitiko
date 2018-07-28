@@ -1,7 +1,7 @@
 #pane{
     -fx-background-image: url("bkgd.png");
     -fx-background-repeat: stretch;
-    -fx-background-size: 750 650;
+    -fx-background-size: 800 650;
     -fx-background-position: center center;
     -fx-background-color: black;
 }

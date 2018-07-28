@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ListView?>
 <VBox alignment="center" xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.geekbrains.Dz.Dz7.client.Controller">
 
@@ -18,13 +19,22 @@
 
     </HBox>
 
-    <StackPane fx:id="pane" VBox.vgrow="ALWAYS">
-    <TextArea fx:id="textArea" editable="false" VBox.vgrow="ALWAYS" />
-    </StackPane>
-    <HBox fx:id="bottomPanel" managed="false" visible="false">
-        <TextField fx:id="textField" HBox.hgrow="ALWAYS" onAction="#sendMsg" promptText="Что Вы хотите сказать?"/>
-        <Button fx:id="btn" onAction="#sendMsg" text="Отправить" textFill="gold" onMouseMoved="#btnColor"
-        onMouseExited="#btnColorDft"/>
-        <Button fx:id ="musicBtn" onAction="#musicOnOff" text="Музыка: off" textFill="gold"/>
+    <HBox VBox.vgrow="ALWAYS">
+        <VBox HBox.hgrow="ALWAYS">
+            <StackPane fx:id="pane" VBox.vgrow="ALWAYS">
+                <TextArea fx:id="textArea" editable="false" VBox.vgrow="ALWAYS"/>
+            </StackPane>
+            <HBox fx:id="bottomPanel" managed="false" visible="false">
+                <TextField fx:id="textField" HBox.hgrow="ALWAYS" onAction="#sendMsg"
+                           promptText="Что Вы хотите сказать?"/>
+                <Button fx:id="btn" onAction="#sendMsg" text="Отправить" textFill="gold" onMouseMoved="#btnColor"
+                        onMouseExited="#btnColorDft"/>
+                <Button fx:id="musicBtn" onAction="#musicOnOff" text="Музыка: off" textFill="gold"/>
+            </HBox>
+        </VBox>
+        <ListView fx:id="clientList" managed="false" visible="false"/>
+
     </HBox>
+
+
 </VBox>

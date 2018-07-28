@@ -52,17 +52,22 @@ public class ServerMain {
 
     public void subscribe(ClientHandler client) {
         clients.add(client);
+        broadcastClientList();
     }
 
     public void unsubscribe(ClientHandler client) {
         clients.remove(client);
+        broadcastClientList();
     }
 
     public void broadCastMsg(ClientHandler from, String msg) {
         for (ClientHandler o : clients
                 ) {
             if (!o.checkBlackList(from.getName())){
-                o.sendMsg(msg);
+
+                    o.sendMsg(msg);
+
+
             }
 
         }
@@ -92,4 +97,17 @@ public class ServerMain {
         return false;
 
     }
+
+    public void broadcastClientList (){
+        StringBuilder sb = new StringBuilder();
+        sb.append("/clientList ");
+        for (ClientHandler o : clients){
+            sb.append(o.getName() + " ");
+        }
+        String out = sb.toString();
+        for (ClientHandler o: clients) {
+            o.sendMsg(out);
+        }
+    }
+
 }

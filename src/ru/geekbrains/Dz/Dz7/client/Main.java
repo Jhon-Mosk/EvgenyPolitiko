@@ -21,7 +21,7 @@ public class Main extends Application {
 
         Font.loadFont(Main.class.getResource("AmazDooMRight.ttf").toExternalForm(), 20);
 
-        Scene scene = new Scene(root, 725, 675);
+        Scene scene = new Scene(root, 825, 675);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         scene.getStylesheets().add((getClass().getResource("/css/Style.css")).toExternalForm());
