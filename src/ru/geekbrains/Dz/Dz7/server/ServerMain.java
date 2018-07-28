@@ -58,28 +58,31 @@ public class ServerMain {
         clients.remove(client);
     }
 
-    public void broadCastMsg(String msg) {
+    public void broadCastMsg(ClientHandler from, String msg) {
         for (ClientHandler o : clients
                 ) {
-            o.sendMsg(msg);
+            if (!o.checkBlackList(from.getName())){
+                o.sendMsg(msg);
+            }
+
         }
     }
 
-    public void privateMsg (String msg) {
+    public void privateMsg (ClientHandler from, String msg) {
 
 
-        String [] privat = msg.split(" ");
-        ArrayList<String> mess = new ArrayList<>();
-
-        for (int i = 2; i<privat.length; i++){
-            mess.add(privat[i]);
-        }
+        String [] privat = msg.split(" ", 3);
 
         for (ClientHandler o : clients){
             if (o.getName().equals(privat [1])){
-                o.sendMsg("Private message from: " + privat[1] + " " + mess.toString());
+                o.sendMsg("Private message from " + privat[1] + ": " + privat[2]);
+                from.sendMsg("Private message to " + privat[1] + ": " + privat[2]);
+                return;
             }
         }
+
+        from.sendMsg(privat[1] + " is absent");
+
     }
 
     public boolean isNickBusy(String nick) {

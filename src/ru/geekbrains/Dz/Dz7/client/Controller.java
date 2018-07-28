@@ -70,7 +70,7 @@ public class Controller {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            String [] col = {"black", "red", "blue", "green", "gray", "magenta", "orange", "cyan", "pink", "yellow"};
+            String [] col = {"black", "red", "blue", "green", "gray", "magenta", "orange", "cyan"};
             Random rand = new Random();
 
 setAuthorized(false);
