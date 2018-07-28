@@ -75,7 +75,7 @@ public class ServerMain {
 
         for (ClientHandler o : clients){
             if (o.getName().equals(privat [1])){
-                o.sendMsg("Private message from " + privat[1] + ": " + privat[2]);
+                o.sendMsg("Private message from " + from.getName() + ": " + privat[2]);
                 from.sendMsg("Private message to " + privat[1] + ": " + privat[2]);
                 return;
             }

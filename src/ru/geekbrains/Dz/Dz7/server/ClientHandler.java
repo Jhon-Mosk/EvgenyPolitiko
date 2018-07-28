@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ClientHandler {
     private Socket socket = null;
@@ -11,12 +12,13 @@ public class ClientHandler {
     private DataInputStream in;
     private DataOutputStream out;
     private String nick;
-
+    private ArrayList<String> blacklist;
 
 
     public ClientHandler(ServerMain serverMain, Socket socket) {
 
         try {
+            this.blacklist = new ArrayList<>();
             this.socket = socket;
             this.serverMain = serverMain;
             this.in = new DataInputStream(socket.getInputStream());
@@ -34,7 +36,7 @@ public class ClientHandler {
                                 if (!serverMain.isNickBusy(newNick)) {
                                     sendMsg("/authentication success");
                                     nick = newNick;
-                                    serverMain.broadCastMsg(nick + " with us");
+                                    serverMain.broadCastMsg(this, nick + " with us");
                                     sendMsg("Welcome to our chat");
                                     serverMain.subscribe(this);
                                     break;
@@ -48,16 +50,24 @@ public class ClientHandler {
 
                     while (true) {
                         String str = in.readUTF();
-                        if (str.equals("/end")) {
-                            out.writeUTF("/serverClosed");
-                            break;
-                        }
-                        if (str.startsWith("/w")){
+                        if (str.startsWith("/")) {
+                            if (str.equals("/end")) {
+                                out.writeUTF("/serverClosed");
+                                break;
+                            }
+                            if (str.startsWith("/w")) {
 
-                            serverMain.privateMsg(str);
+                                serverMain.privateMsg(this, str);
+                            }
+
+                            if (str.startsWith("/blacklist")) {
+                                String[] tokens = str.split(" ");
+                                blacklist.add(tokens[1]);
+                                sendMsg("You add " + tokens[1] + " into black list");
+                            }
                         } else {
 
-                        serverMain.broadCastMsg(nick + ": " + str);
+                            serverMain.broadCastMsg(this, nick + ": " + str);
                         }
                     }
 
@@ -84,6 +94,10 @@ public class ClientHandler {
         }
     }
 
+    public boolean checkBlackList(String nick) {
+        return blacklist.contains(nick);
+    }
+
     public void sendMsg(String msg) {
         try {
             out.writeUTF(msg);
@@ -92,7 +106,7 @@ public class ClientHandler {
         }
     }
 
-    public String getName(){
+    public String getName() {
         return nick;
     }
 
