@@ -76,6 +76,17 @@ public class ClientHandler {
                                 out.writeUTF(sb.toString());
                             }
 
+                            if (str.startsWith("/delete")){
+                                String [] tokens = str.split(" ");
+                                if (AuthService.accessRights(this)){
+                                AuthService.deleteUser(tokens[1]);
+                                sendMsg("You delete " + tokens[1] + " from chat");
+                                } else {
+                                    sendMsg("You can't do it");
+                                }
+
+                            }
+
                         } else {
                             AuthService.saveHistory(nick, str);
                             serverMain.broadCastMsg(this, nick + ": " + str);

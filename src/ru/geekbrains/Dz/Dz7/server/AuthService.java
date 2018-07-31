@@ -120,4 +120,36 @@ public class AuthService {
         }
     }
 
+    public static boolean accessRights(ClientHandler from) {
+        String sql = String.format("SELECT admin FROM main\n" +
+                "WHERE nickname = '%s'\n", from.getName());
+        boolean result = false;
+        try {
+            ResultSet rs = AuthService.getStmt().executeQuery(sql);
+            if (rs.next()) {
+                int admin = rs.getInt(1);
+                System.out.println(admin);
+                if (admin == 0) {
+                    result = false;
+                }
+                if (admin == 1) {
+                    result = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static void deleteUser(String nick) {
+        String sql = String.format("DELETE FROM main\n" +
+                "WHERE nickname='%s'\n", nick);
+        try {
+            ResultSet rs = stmt.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

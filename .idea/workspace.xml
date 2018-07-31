@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b1da8c9-bb59-42fc-b0c5-256d26a9de61" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/UserDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerMain.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +20,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+            <state relative-caret-position="232">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +41,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="108" column="56" selection-start-line="108" selection-start-column="56" selection-end-line="108" selection-end-column="56" />
+            <state relative-caret-position="1242">
+              <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,10 +63,12 @@
       <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="27" column="62" selection-start-line="25" selection-start-column="2" selection-end-line="27" selection-end-column="62" />
+            <state relative-caret-position="421">
+              <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5591#5592#0" expanded="true" />
+                <element signature="e#5618#5619#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,12 +77,14 @@
       <file leaf-file-name="AuthService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/AuthService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+            <state relative-caret-position="232">
+              <caret line="148" column="50" selection-start-line="148" selection-start-column="50" selection-end-line="148" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2888#3063#0" expanded="true" />
-                <element signature="e#3062#3063#0" expanded="true" />
+                <element signature="e#218#219#0" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
+                <element signature="e#2965#3463#0" expanded="true" />
+                <element signature="e#3462#3463#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,8 +107,8 @@
       <file leaf-file-name="ServerMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="194">
+              <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -167,10 +166,10 @@
         <option value="$PROJECT_DIR$/src/css/Style.css" />
         <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerMain.java" />
         <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java" />
-        <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java" />
-        <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/test.java" />
+        <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java" />
+        <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java" />
+        <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/AuthService.java" />
       </list>
     </option>
@@ -279,7 +278,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.geekbrains.Dz.Dz6.client.Client" />
       <module name="Java 2" />
@@ -385,9 +384,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.ServerStart" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.Vector" />
         <item itemvalue="Application.Client" />
       </list>
@@ -509,7 +508,21 @@
       <option name="project" value="LOCAL" />
       <updated>1532788508965</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="dz 8">
+      <created>1533050018560</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1533050018561</updated>
+    </task>
+    <task id="LOCAL-00017" summary="blacklist done">
+      <created>1533053148461</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1533053148461</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -592,7 +605,8 @@
     <MESSAGE value="Dz7 start" />
     <MESSAGE value="client and server create" />
     <MESSAGE value="dz 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="dz 8" />
+    <MESSAGE value="blacklist done" />
+    <option name="LAST_COMMIT_MESSAGE" value="blacklist done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -600,13 +614,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz1/Marathon1/Competitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-918">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz4/Worksheet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -653,13 +660,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Java 2/Teacher/Lessons6/startJavaFX.rar" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="347" column="24" selection-start-line="347" selection-start-column="24" selection-end-line="347" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz4/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-640">
@@ -834,6 +834,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="257" column="32" selection-start-line="257" selection-start-column="32" selection-end-line="257" selection-end-column="32" />
+          <folding>
+            <element signature="e#8302#8303#0" expanded="true" />
+            <element signature="e#8330#8331#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -849,33 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="62" selection-start-line="25" selection-start-column="2" selection-end-line="27" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -907,23 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="108" column="56" selection-start-line="108" selection-start-column="56" selection-end-line="108" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -936,14 +896,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/AuthService.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+        <state relative-caret-position="-2390">
+          <caret line="461" column="16" selection-start-line="461" selection-start-column="16" selection-end-line="461" selection-end-column="16" />
+          <folding>
+            <element signature="e#17168#17169#0" expanded="true" />
+            <element signature="e#17213#17214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="1071" column="22" selection-start-line="1071" selection-start-column="22" selection-end-line="1071" selection-end-column="22" />
+          <folding>
+            <element signature="e#45769#45770#0" expanded="true" />
+            <element signature="e#45811#45812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2888#3063#0" expanded="true" />
-            <element signature="e#3062#3063#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ServerMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/ClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5591#5592#0" expanded="true" />
+            <element signature="e#5618#5619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/Dz/Dz7/server/AuthService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="148" column="50" selection-start-line="148" selection-start-column="50" selection-end-line="148" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#2965#3463#0" expanded="true" />
+            <element signature="e#3462#3463#0" expanded="true" />
           </folding>
         </state>
       </provider>
