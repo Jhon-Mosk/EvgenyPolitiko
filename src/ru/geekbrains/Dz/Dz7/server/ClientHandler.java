@@ -4,6 +4,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClientHandler {
@@ -12,18 +14,20 @@ public class ClientHandler {
     private DataInputStream in;
     private DataOutputStream out;
     private String nick;
-    private ArrayList<String> blacklist;
+//    private ArrayList<String> blacklist;
 
 
     public ClientHandler(ServerMain serverMain, Socket socket) {
 
         try {
-            this.blacklist = new ArrayList<>();
+//            this.blacklist = new ArrayList<>();
             this.socket = socket;
             this.serverMain = serverMain;
             this.in = new DataInputStream(socket.getInputStream());
             this.out = new DataOutputStream(socket.getOutputStream());
-
+//AuthService.addUser("login1", "pass1", "nick1");
+//            AuthService.addUser("login2", "pass2", "nick2");
+//            AuthService.addUser("login3", "pass3", "nick3");
             new Thread(() -> {
                 try {
                     while (true) {
@@ -62,11 +66,29 @@ public class ClientHandler {
 
                             if (str.startsWith("/blacklist")) {
                                 String[] tokens = str.split(" ");
-                                blacklist.add(tokens[1]);
-                                sendMsg("You add " + tokens[1] + " into black list");
+//                                blacklist.add(tokens[1]);
+                                AuthService.addIntoBlacklist(tokens[1]);
+                                sendMsg("You add " + tokens[1] + " into black list on 10 seconds");
                             }
-                        } else {
 
+                            if (str.startsWith("/history")) {
+                                StringBuilder sb = AuthService.getHistoryChat();
+                                out.writeUTF(sb.toString());
+                            }
+
+                            if (str.startsWith("/delete")){
+                                String [] tokens = str.split(" ");
+                                if (AuthService.accessRights(this)){
+                                AuthService.deleteUser(tokens[1]);
+                                sendMsg("You delete " + tokens[1] + " from chat");
+                                } else {
+                                    sendMsg("You can't do it");
+                                }
+
+                            }
+
+                        } else {
+                            AuthService.saveHistory(nick, str);
                             serverMain.broadCastMsg(this, nick + ": " + str);
                         }
                     }
@@ -95,7 +117,27 @@ public class ClientHandler {
     }
 
     public boolean checkBlackList(String nick) {
-        return blacklist.contains(nick);
+        String sql = String.format("SELECT blacklist FROM main\n" +
+                "WHERE nickname = '%s'\n", nick);
+        boolean result = false;
+        try {
+            ResultSet rs = AuthService.getStmt().executeQuery(sql);
+//            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                int nickname = rs.getInt(1);
+                System.out.println(nickname);
+                if (nickname == 0) {
+                    result = false;
+                }
+                if (nickname == 1) {
+                    result = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+//        return blacklist.contains(nick);
     }
 
     public void sendMsg(String msg) {

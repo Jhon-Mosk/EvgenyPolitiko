@@ -19,6 +19,10 @@ public class ServerMain {
         try {
             AuthService.connect();
 
+//            AuthService.addUser("login1", "pass1", "nick1");
+//            AuthService.addUser("login2", "pass2", "nick2");
+//            AuthService.addUser("login3", "pass3", "nick3");
+
             server = new ServerSocket(8189);
             System.out.println("Server start");
 
@@ -52,17 +56,22 @@ public class ServerMain {
 
     public void subscribe(ClientHandler client) {
         clients.add(client);
+        broadcastClientList();
     }
 
     public void unsubscribe(ClientHandler client) {
         clients.remove(client);
+        broadcastClientList();
     }
 
     public void broadCastMsg(ClientHandler from, String msg) {
         for (ClientHandler o : clients
                 ) {
             if (!o.checkBlackList(from.getName())){
-                o.sendMsg(msg);
+
+                    o.sendMsg(msg);
+
+
             }
 
         }
@@ -92,4 +101,17 @@ public class ServerMain {
         return false;
 
     }
+
+    public void broadcastClientList (){
+        StringBuilder sb = new StringBuilder();
+        sb.append("/clientList ");
+        for (ClientHandler o : clients){
+            sb.append(o.getName() + " ");
+        }
+        String out = sb.toString();
+        for (ClientHandler o: clients) {
+            o.sendMsg(out);
+        }
+    }
+
 }

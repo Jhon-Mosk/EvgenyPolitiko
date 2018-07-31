@@ -1,18 +1,18 @@
 package ru.geekbrains.Dz.Dz7.client;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -52,6 +52,22 @@ public class Controller {
     @FXML
     PasswordField passwordField;
 
+    @FXML
+    ListView clientList;
+
+    @FXML
+    HBox privateMsgWindow;
+
+    @FXML
+    TextField nickField;
+
+    @FXML
+    TextField msgField;
+
+    @FXML
+    TextField nicknameField;
+
+
     private boolean isAuthorized;
 
     private String soundtrack = getClass().getResource("sdt.mp3").toString();
@@ -70,43 +86,60 @@ public class Controller {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            String [] col = {"black", "red", "green", "gray", "magenta", "orange", "cyan"};
+            String[] col = {"black", "red", "green", "gray", "magenta", "orange", "cyan", "gold"};
             Random rand = new Random();
 
-setAuthorized(false);
+            setAuthorized(false);
 
-            Thread t1 = new Thread(()-> {
-                    try {
+            Thread t1 = new Thread(() -> {
+                try {
 
-                        while (true){
-                            String str = in.readUTF();
-                            if (str.startsWith("/authentication success")){
-                                setAuthorized(true);
-                                break;
-                            } else {
+                    while (true) {
+                        String str = in.readUTF();
+                        if (str.startsWith("/authentication success")) {
+                            setAuthorized(true);
+                            break;
+                        } else {
 
-                                textArea.appendText(str+ "\n");
-                            }
-                        }
-
-                        while (true) {
-                            String str = in.readUTF();
-                            if (str.equals("/serverClosed")) break;
-                            int color = rand.nextInt(col.length);
-                            textArea.setStyle("-fx-text-fill:" + col[color] +";");
                             textArea.appendText(str + "\n");
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        try {
-                            socket.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                    }
+
+                    getHistory();
+
+                    while (true) {
+                        String str = in.readUTF();
+                        if (str.equals("/serverClosed"))
+                            break;
+                        if (str.startsWith("/clientList")) {
+                            String[] tokens = str.split(" ");
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    clientList.getItems().clear();
+                                    for (int i = 1; i < tokens.length; i++) {
+                                        clientList.getItems().add(tokens[i]);
+                                    }
+                                }
+                            });
+
+                        } else {
+                            int color = rand.nextInt(col.length);
+                            textArea.setStyle("-fx-text-fill:" + col[color] + ";");
+                            textArea.appendText(str + "\n");
                         }
                     }
-setAuthorized(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        socket.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+                setAuthorized(false);
+            }
             );
 
             t1.setDaemon(true);
@@ -116,18 +149,30 @@ setAuthorized(false);
         }
     }
 
-    public void setAuthorized (boolean isAuthorized){
+    public void getHistory() {
+        try {
+            out.writeUTF("/history ");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setAuthorized(boolean isAuthorized) {
         this.isAuthorized = isAuthorized;
-        if (!isAuthorized){
+        if (!isAuthorized) {
             upperPanel.setVisible(true);
             upperPanel.setManaged(true);
             bottomPanel.setVisible(false);
             bottomPanel.setManaged(false);
+            clientList.setManaged(false);
+            clientList.setVisible(false);
         } else {
             upperPanel.setVisible(false);
             upperPanel.setManaged(false);
             bottomPanel.setVisible(true);
             bottomPanel.setManaged(true);
+            clientList.setManaged(true);
+            clientList.setVisible(true);
         }
     }
 
@@ -169,7 +214,7 @@ setAuthorized(false);
     }
 
     public void tryToAuth(ActionEvent actionEvent) {
-        if (socket == null || socket.isClosed()){
+        if (socket == null || socket.isClosed()) {
             connect();
         }
         try {
@@ -179,5 +224,59 @@ setAuthorized(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void priv(MouseEvent mouseEvent) {
+
+        bottomPanel.setVisible(false);
+        bottomPanel.setManaged(false);
+        clientList.setManaged(true);
+        clientList.setVisible(true);
+        privateMsgWindow.setManaged(true);
+        privateMsgWindow.setVisible(true);
+
+    }
+
+    public void sendPrivMsg(ActionEvent actionEvent) {
+        String nick = nickField.getText();
+        String privMsg = msgField.getText();
+
+        try {
+            out.writeUTF("/w " + nick + " " + privMsg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        msgField.clear();
+        msgField.requestFocus();
+
+
+    }
+
+    public void comeSharedChat(ActionEvent actionEvent) {
+        bottomPanel.setVisible(true);
+        bottomPanel.setManaged(true);
+        clientList.setManaged(true);
+        clientList.setVisible(true);
+        privateMsgWindow.setManaged(false);
+        privateMsgWindow.setVisible(false);
+    }
+
+    public void register(ActionEvent actionEvent) {
+        nicknameField.setManaged(true);
+        nicknameField.setVisible(true);
+//        try {
+//            out.writeUTF("/register " + loginField.getText() + " " + passwordField.getText() + " " +
+//            nicknameField.getText());
+//            loginField.clear();
+//            passwordField.clear();
+//            nicknameField.clear();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public void reg(MouseEvent mouseEvent) {
+        System.out.println("dsfsdf");
     }
 }
