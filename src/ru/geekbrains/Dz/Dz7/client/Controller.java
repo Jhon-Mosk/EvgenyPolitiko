@@ -6,11 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -53,6 +55,16 @@ public class Controller {
     @FXML
     ListView clientList;
 
+    @FXML
+    HBox privateMsgWindow;
+
+    @FXML
+    TextField nickField;
+
+    @FXML
+    TextField msgField;
+
+
     private boolean isAuthorized;
 
     private String soundtrack = getClass().getResource("sdt.mp3").toString();
@@ -71,7 +83,7 @@ public class Controller {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            String[] col = {"black", "red", "green", "gray", "magenta", "orange", "cyan"};
+            String[] col = {"black", "red", "green", "gray", "magenta", "orange", "cyan", "gold"};
             Random rand = new Random();
 
             setAuthorized(false);
@@ -90,9 +102,12 @@ public class Controller {
                         }
                     }
 
+                    getHistory();
+
                     while (true) {
                         String str = in.readUTF();
-                        if (str.equals("/serverClosed")) break;
+                        if (str.equals("/serverClosed"))
+                            break;
                         if (str.startsWith("/clientList")) {
                             String[] tokens = str.split(" ");
                             Platform.runLater(new Runnable() {
@@ -126,6 +141,14 @@ public class Controller {
 
             t1.setDaemon(true);
             t1.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getHistory() {
+        try {
+            out.writeUTF("/history ");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -198,5 +221,41 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void priv(MouseEvent mouseEvent) {
+
+        bottomPanel.setVisible(false);
+        bottomPanel.setManaged(false);
+        clientList.setManaged(true);
+        clientList.setVisible(true);
+        privateMsgWindow.setManaged(true);
+        privateMsgWindow.setVisible(true);
+
+    }
+
+    public void sendPrivMsg(ActionEvent actionEvent) {
+        String nick = nickField.getText();
+        String privMsg = msgField.getText();
+
+        try {
+            out.writeUTF("/w " + nick + " " + privMsg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        msgField.clear();
+        msgField.requestFocus();
+
+
+    }
+
+    public void comeSharedChat(ActionEvent actionEvent) {
+        bottomPanel.setVisible(true);
+        bottomPanel.setManaged(true);
+        clientList.setManaged(true);
+        clientList.setVisible(true);
+        privateMsgWindow.setManaged(false);
+        privateMsgWindow.setVisible(false);
     }
 }

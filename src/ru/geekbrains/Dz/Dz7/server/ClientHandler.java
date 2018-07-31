@@ -23,7 +23,9 @@ public class ClientHandler {
             this.serverMain = serverMain;
             this.in = new DataInputStream(socket.getInputStream());
             this.out = new DataOutputStream(socket.getOutputStream());
-
+//AuthService.addUser("login1", "pass1", "nick1");
+//            AuthService.addUser("login2", "pass2", "nick2");
+//            AuthService.addUser("login3", "pass3", "nick3");
             new Thread(() -> {
                 try {
                     while (true) {
@@ -63,10 +65,17 @@ public class ClientHandler {
                             if (str.startsWith("/blacklist")) {
                                 String[] tokens = str.split(" ");
                                 blacklist.add(tokens[1]);
+                                AuthService.addIntoBlacklist(tokens[1]);
                                 sendMsg("You add " + tokens[1] + " into black list");
                             }
-                        } else {
 
+                            if (str.startsWith("/history")) {
+                                StringBuilder sb = AuthService.getHistoryChat();
+                                out.writeUTF(sb.toString());
+                            }
+
+                        } else {
+                            AuthService.saveHistory(nick, str);
                             serverMain.broadCastMsg(this, nick + ": " + str);
                         }
                     }

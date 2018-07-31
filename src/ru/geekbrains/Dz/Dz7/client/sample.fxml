@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.ListView?>
-<VBox alignment="center" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.geekbrains.Dz.Dz7.client.Controller">
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="ru.geekbrains.Dz.Dz7.client.Controller">
 
     <HBox fx:id="upperPanel">
 
-        <TextField fx:id="loginField" HBox.hgrow="ALWAYS" promptText="Логин"/>
-        <PasswordField fx:id="passwordField" promptText="Пароль" onAction="#tryToAuth"/>
-        <Button text="Авторизоваться" onAction="#tryToAuth"/>
+        <TextField fx:id="loginField" promptText="Логин" HBox.hgrow="ALWAYS" />
+        <PasswordField fx:id="passwordField" onAction="#tryToAuth" promptText="Пароль" />
+        <Button onAction="#tryToAuth" text="Авторизоваться" />
 
     </HBox>
+
+
 
     <HBox VBox.vgrow="ALWAYS">
         <VBox HBox.hgrow="ALWAYS">
             <StackPane fx:id="pane" VBox.vgrow="ALWAYS">
-                <TextArea fx:id="textArea" editable="false" VBox.vgrow="ALWAYS"/>
+                <TextArea fx:id="textArea" editable="false" VBox.vgrow="ALWAYS" />
             </StackPane>
+
+            <HBox fx:id="privateMsgWindow" managed="false" visible="false">
+
+                <TextField fx:id="nickField" prefHeight="25.0" prefWidth="0.0" promptText="Кому?" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="msgField" promptText="Что?" HBox.hgrow="ALWAYS" onAction="#sendPrivMsg"/>
+                <Button fx:id="sendBtn" onAction="#sendPrivMsg" text="Отправить"/>
+                <Button fx:id="sharedChat" onAction="#comeSharedChat" text="В общий чат"/>
+
+            </HBox>
+
             <HBox fx:id="bottomPanel" managed="false" visible="false">
-                <TextField fx:id="textField" HBox.hgrow="ALWAYS" onAction="#sendMsg"
-                           promptText="Что Вы хотите сказать?"/>
-                <Button fx:id="btn" onAction="#sendMsg" text="Отправить" textFill="gold" onMouseMoved="#btnColor"
-                        onMouseExited="#btnColorDft"/>
-                <Button fx:id="musicBtn" onAction="#musicOnOff" text="Музыка: off" textFill="gold"/>
+                <TextField fx:id="textField" onAction="#sendMsg" promptText="Что Вы хотите сказать?" HBox.hgrow="ALWAYS" />
+                <Button fx:id="btn" onAction="#sendMsg" onMouseExited="#btnColorDft" onMouseMoved="#btnColor" text="Отправить" textFill="gold" />
+                <Button fx:id="musicBtn" onAction="#musicOnOff" text="Музыка: off" textFill="gold" />
             </HBox>
         </VBox>
-        <ListView fx:id="clientList" managed="false" visible="false"/>
+        <ListView fx:id="clientList" managed="false" onMouseClicked="#priv" visible="false" />
 
     </HBox>
 
