@@ -6,6 +6,11 @@ import java.util.TimerTask;
 
 public class AuthService {
     private static Connection connection;
+
+    public static Statement getStmt() {
+        return stmt;
+    }
+
     private static Statement stmt;
 
     public static void connect() throws SQLException {
@@ -78,7 +83,7 @@ public class AuthService {
     }
 
     public static void addIntoBlacklist(String nick){
-        Timer timer = new Timer();
+
         try {
             String query = "UPDATE main SET blacklist=1 WHERE nickname=?";
             PreparedStatement ps = connection.prepareStatement(query);
@@ -87,7 +92,7 @@ public class AuthService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -103,7 +108,7 @@ public class AuthService {
 
                 timer.cancel();
             }
-        }, 5000 );
+        }, 10000 );
 
     }
 
