@@ -64,6 +64,9 @@ public class Controller {
     @FXML
     TextField msgField;
 
+    @FXML
+    TextField nicknameField;
+
 
     private boolean isAuthorized;
 
@@ -257,5 +260,23 @@ public class Controller {
         clientList.setVisible(true);
         privateMsgWindow.setManaged(false);
         privateMsgWindow.setVisible(false);
+    }
+
+    public void register(ActionEvent actionEvent) {
+        nicknameField.setManaged(true);
+        nicknameField.setVisible(true);
+//        try {
+//            out.writeUTF("/register " + loginField.getText() + " " + passwordField.getText() + " " +
+//            nicknameField.getText());
+//            loginField.clear();
+//            passwordField.clear();
+//            nicknameField.clear();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public void reg(MouseEvent mouseEvent) {
+        System.out.println("dsfsdf");
     }
 }
