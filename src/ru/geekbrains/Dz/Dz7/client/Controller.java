@@ -278,5 +278,6 @@ public class Controller {
 
     public void reg(MouseEvent mouseEvent) {
         System.out.println("dsfsdf");
+        // нужно регистрацию сделать в новом окне, либо выяснить как на одну кнопку привязать два действия
     }
 }
