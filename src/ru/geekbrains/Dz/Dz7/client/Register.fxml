@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geekbrains.Dz.Dz7.client.RegisterController" alignment="center">
+<HBox>
+       <TextField fx:id="loginField" alignment="CENTER" promptText="Логин"/>
+       <TextField fx:id="passwordField" alignment="CENTER" promptText="Пароль"/>
+       <TextField fx:id="nicknameField" alignment="CENTER" promptText="Ник"/>
+       <Button fx:id="registerButton" alignment="CENTER" onAction="#register" text="Зарегистрироваться" />
+</HBox>
+</VBox>

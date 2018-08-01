@@ -50,6 +50,10 @@ public class ClientHandler {
                                 sendMsg("Login or password is wrong. Try again.");
                             }
                         }
+
+                        if (str.startsWith("/register")){
+                            System.out.println("registration");
+                        }
                     }
 
                     while (true) {
@@ -87,10 +91,13 @@ public class ClientHandler {
 
                             }
 
+
+
                         } else {
                             AuthService.saveHistory(nick, str);
                             serverMain.broadCastMsg(this, nick + ": " + str);
                         }
+                        System.out.println("Client: " + str);
                     }
 
                 } catch (IOException e) {
