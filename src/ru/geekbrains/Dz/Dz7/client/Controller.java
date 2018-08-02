@@ -11,7 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.DataInputStream;
@@ -263,20 +266,10 @@ public class Controller {
     }
 
     public void register(ActionEvent actionEvent) {
-        nicknameField.setManaged(true);
-        nicknameField.setVisible(true);
-//        try {
-//            out.writeUTF("/register " + loginField.getText() + " " + passwordField.getText() + " " +
-//            nicknameField.getText());
-//            loginField.clear();
-//            passwordField.clear();
-//            nicknameField.clear();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+Register reg = new Register(out);
+reg.show();
+
     }
 
-    public void reg(MouseEvent mouseEvent) {
-        System.out.println("dsfsdf");
-    }
+
 }

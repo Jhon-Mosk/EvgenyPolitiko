@@ -16,8 +16,8 @@
         <TextField fx:id="loginField" promptText="Логин" HBox.hgrow="ALWAYS" />
         <PasswordField fx:id="passwordField" onAction="#tryToAuth" promptText="Пароль" />
         <TextField fx:id="nicknameField" promptText="Ник" HBox.hgrow="ALWAYS" managed="false" visible="false"/>
-        <Button onAction="#tryToAuth" text="Авторизоваться" managed="true" visible="true"/>
-        <Button onMouseClicked="#reg" onAction="#register" text="Зарегистрироваться" />
+        <Button onAction="#tryToAuth" text="Авторизоваться"/>
+        <Button onAction="#register" text="Зарегистрироваться"/>
 
     </HBox>
 
