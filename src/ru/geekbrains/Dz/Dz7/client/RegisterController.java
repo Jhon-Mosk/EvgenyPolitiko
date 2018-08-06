@@ -25,7 +25,7 @@ public class RegisterController {
 
     public void register(ActionEvent actionEvent) {
         DataOutputStream out = ((Register)registerButton.getScene().getWindow()).out;
-        try {
+        try {// здесь выскакивает ошибка, при попытке передать данные
             out.writeUTF("/register" + loginField.getText() + " " + passwordField.getText() + " " +
                     nicknameField.getText());
             loginField.clear();
