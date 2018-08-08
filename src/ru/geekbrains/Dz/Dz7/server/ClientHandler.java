@@ -52,6 +52,8 @@ public class ClientHandler {
                         }
 
                         if (str.startsWith("/register")){
+                            String [] tokens = str.split(" ");
+                            AuthService.addUser(tokens[1], tokens[2], tokens[3]);
                             System.out.println("registration");
                         }
                     }

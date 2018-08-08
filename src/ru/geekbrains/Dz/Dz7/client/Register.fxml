@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geekbrains.Dz.Dz7.client.RegisterController" alignment="center">
-<HBox>
+<HBox fx:id="registrationWindow">
        <TextField fx:id="loginField" alignment="CENTER" promptText="Логин"/>
        <TextField fx:id="passwordField" alignment="CENTER" promptText="Пароль"/>
        <TextField fx:id="nicknameField" alignment="CENTER" promptText="Ник"/>

@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.Socket;
 
 
 public class RegisterController {
@@ -23,14 +25,25 @@ public class RegisterController {
     @FXML
     Button registerButton;
 
+    @FXML
+    HBox registrationWindow;
+
+    Socket socket;
+    final String IP_ADRESS = "localhost";
+    final int PORT = 8189;
+
     public void register(ActionEvent actionEvent) {
-        DataOutputStream out = ((Register)registerButton.getScene().getWindow()).out;
-        try {// здесь выскакивает ошибка, при попытке передать данные
-            out.writeUTF("/register" + loginField.getText() + " " + passwordField.getText() + " " +
+
+
+        try {
+            socket = new Socket(IP_ADRESS, PORT);
+            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            out.writeUTF("/register " + loginField.getText() + " " + passwordField.getText() + " " +
                     nicknameField.getText());
             loginField.clear();
             passwordField.clear();
             nicknameField.clear();
+
         }
         catch (IOException e) {
             e.printStackTrace();
